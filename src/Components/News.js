@@ -18,8 +18,6 @@ function News() {
         <section className='news-container'>
             <NewsContext.Provider value={news}>
                 <NewsCard />
-                <NewsCard />
-                <NewsCard />
             </NewsContext.Provider>
         </section>
     )
