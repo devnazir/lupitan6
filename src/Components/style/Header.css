@@ -1,0 +1,7 @@
+header {
+    display: flex;
+    padding: 1rem;
+    background-color: #BB1919;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
