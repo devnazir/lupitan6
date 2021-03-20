@@ -6,7 +6,7 @@ function News() {
     const [news, setNews] = useState([])
 
     useEffect(() => {
-        const url = 'https://newsapi.org/v2/top-headlines?country=id&apiKey=a6c2e9f0a7df4d8abb6e2975e097ee7e'
+        const url = 'https://api-news-org.herokuapp.com/top-headlines'
         async function fetchData() {
             const dataNews = await (await fetch(url)).json()
             setNews(dataNews.articles)
