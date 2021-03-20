@@ -41,8 +41,7 @@ h1 {
     color: white;
 }
 
-.news-container .news-card .description h4 a {
-    text-decoration: none;
+.news-container .news-card .description h4 {
     color: #eee;
 }
 

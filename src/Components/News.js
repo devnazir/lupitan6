@@ -1,8 +1,9 @@
+/* eslint-disable array-callback-return */
 import { useContext, useEffect, useState } from 'react'
 import NewsContext from '../Context/NewsContext'
 import './style/news.css'
 
-function News() {
+const News = () => {
     const [news, setNews] = useState([])
     const [loading, setLoading] = useState(true)
 
@@ -17,7 +18,7 @@ function News() {
         fetchData()
     }, [])
 
-    if(loading) {
+    if (loading) {
         return <p>Loading...</p>
     }
 
@@ -33,8 +34,18 @@ function News() {
     )
 }
 
-function NewsCard() {
+const NewsCard = () => {
     const news = useContext(NewsContext)
+
+    const toArticle = ({ nativeEvent: { path } }) => {
+        path.some(nodeList => {
+            if(nodeList.className === 'news-card') {
+                const linkArticle = nodeList.dataset.href
+                window.open(linkArticle, 'blank');
+            }
+        })
+    }
+
     return (
         <>
             {
@@ -44,12 +55,12 @@ function NewsCard() {
                     }
 
                     return (
-                        <div className='news-card' key={index}>
+                        <div className='news-card' key={index} onClick={toArticle} data-href={news.url}>
                             <div className='thumbnail'>
-                                <img src={news.urlToImage} alt='thumbnail' />
+                                <img loading='lazy' src={news.urlToImage} alt='thumbnail' />
                             </div>
                             <div className='description'>
-                                <h4 className='title'><a target='blank' href={news.url}>{news.title}</a></h4>
+                                <h4 className='title'>{news.title}</h4>
                             </div>
                         </div>
                     )
