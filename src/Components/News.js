@@ -39,7 +39,7 @@ const NewsCard = () => {
 
     const toArticle = ({ nativeEvent: { path } }) => {
         path.some(nodeList => {
-            if(nodeList.className === 'news-card') {
+            if (nodeList.className === 'news-card') {
                 const linkArticle = nodeList.dataset.href
                 window.open(linkArticle, 'blank');
             }
