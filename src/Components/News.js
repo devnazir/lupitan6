@@ -1,7 +1,7 @@
 /* eslint-disable array-callback-return */
 import { useContext, useEffect, useState } from 'react'
 import NewsContext from '../Context/NewsContext'
-import './style/news.css'
+import '../style/news.css'
 
 const News = () => {
     const [news, setNews] = useState([])
